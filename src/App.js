@@ -22,9 +22,13 @@ export default function App() {
             </Typography>
           </Box>
           <Box>
-            <Button color="inherit" startIcon={<GitHubIcon />}>
-              GitHub
-            </Button>
+          <Button
+            onClick={() => window.open('https://github.com/KavtsevichNikita/Todo-List-with-State-Management-and-Persistence', '_blank')}
+            color="inherit"
+            startIcon={<GitHubIcon />}
+          >
+            GitHub
+          </Button>
           </Box>
         </Toolbar>
       </AppBar>

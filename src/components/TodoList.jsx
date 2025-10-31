@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Box, Button, ButtonGroup, Typography, Stack } from "@mui/material";
 import { TodoItem } from "./TodoItem";
 import { NoTasks } from "./NoTasks";
-import { useTodoStore } from "../../store/store.js";
-import { TODO_MESSAGES } from "../../variables/text.js"
-import { FILTERS, FILTER_LABELS } from "../../variables/filters.js";
+import { useTodoStore } from "../store/store.js";
+import { TODO_MESSAGES } from "../variables/text.js"
+import { FILTERS, FILTER_LABELS } from "../variables/filters.js";
 
 export const TodoList = () => {
   const tasks = useTodoStore((s) => s.tasks);

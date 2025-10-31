@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# Todo App — React + Zustand + LocalStorage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small Todo list application demonstrating modern React practices, external state management, persistence, and unit testing.
+
+## Features
+
+- React functional components with Hooks
+- State management using **Zustand**
+- State persisted to `localStorage` via Zustand `persist` middleware
+- Completed tasks automatically move to the end of the list
+- Filters: **All / Active / Completed**
+- Unit tests for main components
+- Responsive, accessible UI using Material UI
+
+---
+
+## Project Decisions & Rationale
+
+- **Zustand**: lightweight, minimal boilerplate, ideal for small-to-medium apps without Redux overhead  
+- **Persistence**: Zustand `persist` middleware keeps state synced with `localStorage` easily  
+- **Component design**:  
+  - `TodoInput` receives an `onAdd` prop, enabling easy isolated unit testing  
+  - `TodoItem` and `TodoList` designed for separation of concerns and testability  
+- **Task ordering**: active tasks always appear before completed tasks; relative order is preserved within each group  
+- **Accessibility**: proper labels, `aria-*` attributes, and visible focus states  
+- **Styling**: Material UI for responsive, clean, and minimal UI
+
+---
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in development mode.  
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- The page reloads automatically when you make changes  
+- Lint errors are shown in the console  
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in interactive watch mode.  
+All main components are covered: `TodoInput`, `TodoItem`, `TodoList`.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to Run Locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repo and navigate into it:
+   ```bash
+   git clone <repo-url>
+   cd <project-folder>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
 
-### `npm run eject`
+   npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Start development server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Run tests:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   npm test
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Folder Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+my-todo-app/
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    └─public/
+        ├─ index.html
+    └─src/
+        ├─ components/
+        │  ├─ TodoInput.jsx
+        │  ├─ TodoItem.jsx
+        │  └─ TodoList.jsx
+        │  └─ NoTasks.jsx
+        ├─ store/
+        │  └─ store.js       # Zustand store
+        ├─ variables/
+        │  ├─ filters.js
+        │  └─ text.js
+        ├─ tests/
+        │  ├─ TodoInput.test.js
+        │  ├─ TodoItem.test.js
+        │  └─ TodoList.test.js
+        └─ App.js
+        └─ index.js    
+        └─ setupTests.js
+    └─README.md
+    └─.gitignore
+    └─package.json
+    └─package-lock.json

@@ -2,8 +2,8 @@ import React from "react";
 import { Container, Typography, Box, Paper, AppBar, Toolbar, IconButton, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { TodoInput } from "./components/todo/TodoInput";
-import { TodoList } from "./components/todo/TodoList";
+import { TodoInput } from "./components/TodoInput";
+import { TodoList } from "./components/TodoList";
 import { useTodoStore } from "./store/store";
 
 export default function App() {
